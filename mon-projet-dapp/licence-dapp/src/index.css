@@ -1,0 +1,127 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+
+:root {
+  --primary-color: #00eaff;
+  --secondary-color: #ff00ff;
+  --background-gradient: linear-gradient(-45deg, #0a0a0a, #121212, #1a1a1a, #0a0a0a);
+  --text-color: #ffffff;
+  --neon-glow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 15px var(--secondary-color);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--background-gradient);
+  background-size: 300% 300%;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1, h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: var(--neon-glow);
+}
+
+
+a {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+
+button, .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  background: var(--primary-color);
+  box-shadow: var(--neon-glow);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+button:hover, .btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color);
+}
+
+
+nav {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+
+.cursor-glow {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.3), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s linear;
+}
+
+
+@media (max-width: 768px) {
+  h1, h2 {
+    font-size: 2rem;
+  }
+
+  button, .btn {
+    font-size: 1rem;
+  }
+
+
+.cursor-glow {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%); 
+  transition: transform 0.1s linear;
+  will-change: transform;
+  mix-blend-mode: screen;
+}
+
+  
+}
